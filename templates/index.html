@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieVerse</title>
+    <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>MovieVerse</h1>
+        <div id="filme-lista"></div>
+        <form id="adicionar-filme-form" enctype="multipart/form-data">
+            <h2>Adicionar Novo Filme</h2>
+            <input type="text" id="titulo" name="titulo" placeholder="Título" required>
+            <input type="number" id="ano" name="ano" placeholder="Ano" required>
+            <input type="text" id="genero" name="genero" placeholder="Gênero" required>
+            <textarea id="descricao" name="descricao" placeholder="Descrição"></textarea>
+            <input type="file" id="imagem" name="imagem" accept="image/*">
+            <button type="submit">Adicionar</button>
+        </form>
+    </div>
+
+    <!-- Modal de Edição -->
+    <div id="modal-edicao" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Editar Filme</h2>
+            <form id="form-edicao" onsubmit="confirmarEdicaoModal(event)">
+                <input type="hidden" id="id_modal">
+                <input type="text" id="titulo_modal" placeholder="Título" required>
+                <input type="number" id="ano_lancamento_modal" placeholder="Ano de Lançamento" required>
+                <input type="text" id="genero_modal" placeholder="Gênero" required>
+                <textarea id="descricao_modal" placeholder="Descrição"></textarea>
+                <button type="submit">Salvar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../static/js/scripts.js"></script>
+</body>
+</html>
