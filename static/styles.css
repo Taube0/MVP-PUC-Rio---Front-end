@@ -16,9 +16,14 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1.title {
     text-align: center;
-    color: #007bff;
+    font-size: 3em;
+    background: linear-gradient(45deg, #fd0101, #d400ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 #filme-lista {
@@ -26,16 +31,92 @@ h1 {
 }
 
 .filme {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 8px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-height: 200px;
 }
 
-.filme img {
-    max-width: 100px;
-    height: auto;
-    float: right;
-    margin-left: 10px;
+.filme-acoes {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.filme-acoes button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: white;
+    width: 80px;
+}
+
+.editar-btn {
+    width: 125px;
+    margin-bottom: 1em;
+    color: #ffffff;
+    background-color: #036df8;
+    border-radius: 10px;
+    height: 35px;
+}
+
+.excluir-btn {
+    width: 125px;
+    color: #ffffff;
+    background-color: #fc0000;
+    border-radius: 10px;
+    height: 35px;
+}
+
+@keyframes buttonClick {
+    0% {
+        transform: scale(1);
+        background-color: inherit;
+    }
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        background-color: inherit;
+    }
+}
+
+.editar-btn.clicked, .excluir-btn.clicked {
+    animation: buttonClick 0.4s ease;
+}
+
+.titulo {
+    margin-top: 1000px;
+}
+
+.filme-genero,
+.filme-descricao {
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.filme-genero {
+    font-weight: bold;
+}
+
+.filme-descricao {
+    text-align: justify;
 }
 
 form {
@@ -49,6 +130,7 @@ form input, form textarea {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 form button {
@@ -58,6 +140,7 @@ form button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 form button:hover {
@@ -99,4 +182,18 @@ form button:hover {
     color: black;
     text-decoration: none;
     cursor: pointer;
+}
+
+#modal-edicao h2 {
+    text-align: center;
+    color: #007bff;
+}
+
+#form-edicao input, #form-edicao textarea, #form-edicao button {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#form-edicao button {
+    margin-top: 20px;
 }
