@@ -39,11 +39,11 @@ async function carregarFilmes() {
             filmeDiv.classList.add('filme');
             filmeDiv.innerHTML = `
                 <h2 id="titulo_${filme.id}">${filme.titulo} (${filme.ano})</h2>
-                <p id="ano_lancamento_${filme.id}"><strong>Gênero:</strong> ${filme.genero}</p>
-                <p id="genero_${filme.id}">${filme.genero}</p>
-                <p id="descricao_${filme.id}">${filme.descricao}</p>
-                <button class="editar-btn" onclick="mostrarFormularioEdicao(${filme.id})">Editar</button>
-                <button class="excluir-btn" onclick="excluirFilme(${filme.id})">Excluir</button>
+                <p id="ano_lancamento_${filme.id}"><strong>Ano de lançamento:</strong> ${filme.ano}</p>
+                <p id="genero_${filme.id}"><strong>Gênero: </strong>${filme.genero}</p>
+                <p id="descricao_${filme.id}"><strong>Descrição: </strong>${filme.descricao}</p>
+                <button class="editar-btn" onclick="mostrarFormularioEdicao(${filme.id}); this.classList.add('clicked');">Editar</button>
+                <button class="excluir-btn" onclick="excluirFilme(${filme.id}); this.classList.add('clicked');">Excluir</button>
             `;
             lista.appendChild(filmeDiv);
         });
